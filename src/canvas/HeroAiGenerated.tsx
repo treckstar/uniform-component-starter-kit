@@ -1,9 +1,7 @@
-import { FC, useMemo } from 'react';
-import Image from 'next/image';
+import { FC } from 'react';
 import classNames from 'classnames';
-import { registerUniformComponent, ComponentProps, UniformText } from '@uniformdev/canvas-react';
-import { getTextClass, getImageUrl } from '@/utils';
-import Button from '@/components/Button';
+import { registerUniformComponent, ComponentProps } from '@uniformdev/canvas-react';
+import { getTextClass } from '@/utils';
 
 export type Props = ComponentProps<{
   fields: any;
@@ -57,21 +55,16 @@ const getContentAlignClass = (variantId: string | undefined) => {
   }
 };
 
-const Hero: FC<Props> = ({
-  fields = {},
-  component: { variant } = {},
-}) => {
-  const { cta, title, description } = fields
-  const eyebrowText = cta
+const Hero: FC<Props> = ({ fields = {}, component: { variant } = {} }) => {
+  const { cta, title, description } = fields;
+  const eyebrowText = cta;
   return (
     <div className={classNames('hero min-h-[500px] relative', getTextStyleClass(variant))}>
       {variant === HeroVariant.BackgroundImage && <div className="hero-overlay bg-opacity-60"></div>}
       <div className={classNames('hero-content text-center p-0', getHeroContentClass(variant))}>
         <div className={classNames('flex flex-col mx-1 md:mx-10', getContentAlignClass(variant))}>
           {eyebrowText && (
-            <div className={classNames('text-sm font-bold tracking-wider uppercase my-3')}>
-              {eyebrowText}
-            </div>
+            <div className={classNames('text-sm font-bold tracking-wider uppercase my-3')}>{eyebrowText}</div>
           )}
           <h1 className={classNames('font-bold', getTextClass('h5'))}>{title}</h1>
           <div className={classNames('py-6')}>{description}</div>
