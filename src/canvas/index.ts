@@ -7,6 +7,7 @@ import './ContentBlock';
 import './Feature';
 import './FeaturedCallout';
 import './Hero';
+import './HeroAiGenerated';
 import './Image';
 import './navigation/Footer';
 import './navigation/FooterSection';

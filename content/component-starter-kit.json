@@ -44,8 +44,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.265823+00:00",
-      "updated": "2023-05-22T15:52:10.585583+00:00"
+      "created": "2023-05-22T19:31:18.454951+00:00",
+      "updated": "2023-05-22T19:31:18.454951+00:00"
     },
     {
       "id": "accordionItem",
@@ -77,8 +77,291 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.380786+00:00",
-      "updated": "2023-05-22T15:52:30.24036+00:00"
+      "created": "2023-05-22T19:31:18.581992+00:00",
+      "updated": "2023-05-22T19:31:18.581992+00:00"
+    },
+    {
+      "id": "algolia-basicComponents",
+      "name": "Basic Components",
+      "icon": "template",
+      "parameters": [
+        {
+          "id": "searchBoxParams",
+          "name": "Search Box Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Search Box"
+          }
+        },
+        {
+          "id": "refinementListParams",
+          "name": "Refinement List Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Refinement List"
+          }
+        },
+        {
+          "id": "hitsParams",
+          "name": "Hits Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Hits"
+          }
+        },
+        {
+          "id": "paginationParams",
+          "name": "Pagination Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Pagination"
+          }
+        },
+        {
+          "id": "pageSize",
+          "name": "Page Size",
+          "type": "number",
+          "helpText": "This parameter provides a way to set number of hits returned for each page. By default, its value is 20.",
+          "typeConfig": {
+            "min": "1"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "hitComponent",
+          "name": "hitComponent",
+          "maxComponents": 1,
+          "allowedComponents": [
+            "algolia-hit"
+          ],
+          "inheritAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.500009+00:00",
+      "updated": "2023-05-22T19:52:10.500009+00:00"
+    },
+    {
+      "id": "algolia-hit",
+      "name": "Hit",
+      "icon": "play-list-search",
+      "parameters": [],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:09.042446+00:00",
+      "updated": "2023-05-22T19:52:09.042446+00:00"
+    },
+    {
+      "id": "algolia-hits",
+      "name": "Hits",
+      "icon": "play-list-search",
+      "parameters": [
+        {
+          "id": "hitsParams",
+          "name": "Hits Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Hits"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "hitComponent",
+          "name": "hitComponent",
+          "maxComponents": 1,
+          "allowedComponents": [
+            "algolia-hit"
+          ],
+          "inheritAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:08.734431+00:00",
+      "updated": "2023-05-22T19:52:08.734431+00:00"
+    },
+    {
+      "id": "algolia-index",
+      "name": "Index",
+      "icon": "database",
+      "parameters": [
+        {
+          "id": "indexParams",
+          "name": "Index Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Index",
+            "indexConfiguration": {
+              "showOptionalParams": false
+            }
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "widgets",
+          "name": "Widgets",
+          "allowedComponents": [
+            "algolia-hits",
+            "algolia-pagination",
+            "algolia-refinementList",
+            "algolia-searchBox",
+            "algolia-basicComponents"
+          ],
+          "inheritAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.412621+00:00",
+      "updated": "2023-05-22T19:52:10.412621+00:00"
+    },
+    {
+      "id": "algolia-instantSearch",
+      "name": "Instant Search",
+      "icon": "search-found",
+      "parameters": [
+        {
+          "id": "instantSearchParams",
+          "name": "Instant Search Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Instant Search"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "widgets",
+          "name": "Widgets",
+          "allowedComponents": [
+            "algolia-searchBox",
+            "algolia-refinementList",
+            "algolia-hits",
+            "algolia-pagination",
+            "algolia-index",
+            "algolia-basicComponents"
+          ],
+          "inheritAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.743183+00:00",
+      "updated": "2023-05-22T19:52:10.743183+00:00"
+    },
+    {
+      "id": "algolia-page",
+      "name": "Algolia Demo Page",
+      "icon": "file-document",
+      "parameters": [
+        {
+          "id": "metaTitle",
+          "name": "Meta Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "content",
+          "name": "Content",
+          "allowedComponents": [
+            "algolia-instantSearch"
+          ],
+          "inheritAllowedComponents": false
+        }
+      ],
+      "canBeComposition": true,
+      "created": "2023-05-22T19:52:10.570383+00:00",
+      "updated": "2023-05-22T19:52:10.570383+00:00"
+    },
+    {
+      "id": "algolia-pagination",
+      "name": "Pagination",
+      "icon": "browser",
+      "parameters": [
+        {
+          "id": "paginationParams",
+          "name": "Pagination Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Pagination"
+          }
+        },
+        {
+          "id": "pageSize",
+          "name": "Page Size",
+          "type": "number",
+          "helpText": "This parameter provides a way to set number of hits returned for each page. By default, its value is 20.",
+          "typeConfig": {
+            "min": "1"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.182601+00:00",
+      "updated": "2023-05-22T19:52:10.182601+00:00"
+    },
+    {
+      "id": "algolia-refinementList",
+      "name": "Refinement List",
+      "icon": "image-text",
+      "parameters": [
+        {
+          "id": "refinementListParams",
+          "name": "Refinement List Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Refinement List"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.283591+00:00",
+      "updated": "2023-05-22T19:52:10.283591+00:00"
+    },
+    {
+      "id": "algolia-searchBox",
+      "name": "Search Box",
+      "icon": "search",
+      "parameters": [
+        {
+          "id": "searchBoxParams",
+          "name": "Search Box Parameters",
+          "type": "algolia-components",
+          "helpText": "",
+          "typeConfig": {
+            "selectedComponent": "Search Box"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-05-22T19:52:10.559127+00:00",
+      "updated": "2023-05-22T19:52:10.559127+00:00"
     },
     {
       "id": "callToAction",
@@ -170,8 +453,8 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.188497+00:00",
-      "updated": "2023-05-22T15:53:04.243991+00:00",
+      "created": "2023-05-22T19:31:18.741943+00:00",
+      "updated": "2023-05-22T19:31:18.741943+00:00",
       "variants": [
         {
           "id": "alignLeft",
@@ -287,8 +570,8 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.726344+00:00",
-      "updated": "2023-05-22T15:53:23.810219+00:00",
+      "created": "2023-05-22T19:31:19.874119+00:00",
+      "updated": "2023-05-22T19:31:19.874119+00:00",
       "variants": [
         {
           "id": "backgroundImage",
@@ -368,8 +651,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.809273+00:00",
-      "updated": "2023-05-22T15:53:47.896798+00:00",
+      "created": "2023-05-22T19:31:18.314179+00:00",
+      "updated": "2023-05-22T19:31:18.314179+00:00",
       "variants": [
         {
           "id": "carousel",
@@ -462,8 +745,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.681807+00:00",
-      "updated": "2023-05-22T15:54:09.460342+00:00"
+      "created": "2023-05-22T19:31:19.949861+00:00",
+      "updated": "2023-05-22T19:31:19.949861+00:00"
     },
     {
       "id": "content",
@@ -501,8 +784,8 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.660374+00:00",
-      "updated": "2023-05-22T15:54:57.783472+00:00"
+      "created": "2023-05-22T19:31:19.961382+00:00",
+      "updated": "2023-05-22T19:31:19.961382+00:00"
     },
     {
       "id": "feature",
@@ -541,8 +824,8 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.641558+00:00",
-      "updated": "2023-05-22T15:55:15.771198+00:00"
+      "created": "2023-05-22T19:31:19.879775+00:00",
+      "updated": "2023-05-22T19:31:19.879775+00:00"
     },
     {
       "id": "featuredCallout",
@@ -606,8 +889,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.06825+00:00",
-      "updated": "2023-05-22T15:55:28.417588+00:00",
+      "created": "2023-05-22T19:31:19.96103+00:00",
+      "updated": "2023-05-22T19:31:19.96103+00:00",
       "variants": [
         {
           "id": "imageRight",
@@ -757,8 +1040,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.720372+00:00",
-      "updated": "2023-05-22T15:55:54.989307+00:00"
+      "created": "2023-05-22T19:31:20.271475+00:00",
+      "updated": "2023-05-22T19:31:20.271475+00:00"
     },
     {
       "id": "footer",
@@ -807,8 +1090,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.683658+00:00",
-      "updated": "2023-05-22T15:56:10.254246+00:00"
+      "created": "2023-05-22T19:31:20.390112+00:00",
+      "updated": "2023-05-22T19:31:20.390112+00:00"
     },
     {
       "id": "footerSection",
@@ -840,8 +1123,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:23.012412+00:00",
-      "updated": "2023-05-22T15:56:20.608344+00:00"
+      "created": "2023-05-22T19:31:20.258303+00:00",
+      "updated": "2023-05-22T19:31:20.258303+00:00"
     },
     {
       "id": "globalTemplate",
@@ -932,8 +1215,8 @@
         }
       ],
       "canBeComposition": true,
-      "created": "2023-05-22T15:31:22.965312+00:00",
-      "updated": "2023-05-22T15:58:58.5008+00:00"
+      "created": "2023-05-22T19:31:19.006456+00:00",
+      "updated": "2023-05-22T19:31:19.006456+00:00"
     },
     {
       "id": "gridContainer",
@@ -1012,8 +1295,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.544744+00:00",
-      "updated": "2023-05-22T15:56:51.8011+00:00"
+      "created": "2023-05-22T19:31:18.935969+00:00",
+      "updated": "2023-05-22T19:31:18.935969+00:00"
     },
     {
       "id": "header",
@@ -1053,8 +1336,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.857847+00:00",
-      "updated": "2023-05-22T15:57:05.399395+00:00"
+      "created": "2023-05-22T19:31:19.9848+00:00",
+      "updated": "2023-05-22T19:31:19.9848+00:00"
     },
     {
       "id": "hero",
@@ -1098,13 +1381,6 @@
           }
         },
         {
-          "id": "image",
-          "name": "Image",
-          "type": "image",
-          "helpText": "",
-          "typeConfig": null
-        },
-        {
           "id": "primaryButtonCopy",
           "name": "Primary Button Copy",
           "type": "text",
@@ -1145,14 +1421,23 @@
           "type": "tp-button-style-parameter",
           "helpText": "",
           "typeConfig": null
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "cloudinary-image",
+          "helpText": "",
+          "typeConfig": {
+            "targetFolder": "component-starter-kit/canvas-images"
+          }
         }
       ],
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:21.465747+00:00",
-      "updated": "2023-05-22T15:59:12.84707+00:00",
+      "created": "2023-05-22T19:31:20.365676+00:00",
+      "updated": "2023-05-22T22:03:04.261809+00:00",
       "variants": [
         {
           "id": "imageLeft",
@@ -1167,6 +1452,43 @@
           "name": "Background Image"
         }
       ]
+    },
+    {
+      "id": "heroAiGenerated",
+      "name": "Hero (AI generated)",
+      "icon": "https://res.cloudinary.com/uniformdev/image/upload/v1684770717/component-starter-kit/component-icons/new/CSKicon_hero_odv0f6.svg",
+      "parameters": [
+        {
+          "id": "link",
+          "name": "Link",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "linkTypes": {
+              "tel": false,
+              "email": false,
+              "projectMapNode": false
+            }
+          }
+        },
+        {
+          "id": "fields",
+          "name": "Fields",
+          "type": "ai-generated-hero",
+          "helpText": "",
+          "typeConfig": {
+            "promptCta": "Generate a catchy slogan for the following: {link}",
+            "promptTitle": "Generate a title for the following: {link}",
+            "promptLinkText": "Generate link text for the following: {link}",
+            "promptDescription": "Generate a short description for {link}, and target it to someone who matches the following criteria: {$audiences}"
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-05-22T21:57:47.307952+00:00",
+      "updated": "2023-05-22T22:52:37.602201+00:00"
     },
     {
       "id": "iconLink",
@@ -1195,8 +1517,8 @@
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.878642+00:00",
-      "updated": "2023-05-22T15:58:48.654709+00:00"
+      "created": "2023-05-22T19:31:20.430914+00:00",
+      "updated": "2023-05-22T19:31:20.430914+00:00"
     },
     {
       "id": "image",
@@ -1235,8 +1557,8 @@
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.866549+00:00",
-      "updated": "2023-05-22T15:57:45.143411+00:00"
+      "created": "2023-05-22T19:31:20.271937+00:00",
+      "updated": "2023-05-22T19:31:20.271937+00:00"
     },
     {
       "id": "navigationGroup",
@@ -1274,8 +1596,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.822966+00:00",
-      "updated": "2023-05-22T15:58:17.807045+00:00"
+      "created": "2023-05-22T19:31:20.324025+00:00",
+      "updated": "2023-05-22T19:31:20.324025+00:00"
     },
     {
       "id": "navigationLink",
@@ -1305,8 +1627,8 @@
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.219368+00:00",
-      "updated": "2023-05-22T15:58:40.374448+00:00",
+      "created": "2023-05-22T19:31:19.735135+00:00",
+      "updated": "2023-05-22T19:31:19.735135+00:00",
       "variants": [
         {
           "id": "header",
@@ -1344,7 +1666,8 @@
             "$test",
             "$loop",
             "$personalization",
-            "image"
+            "image",
+            "heroAiGenerated"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -1355,8 +1678,8 @@
         "type": "page"
       },
       "canBeComposition": true,
-      "created": "2023-05-22T15:31:22.948951+00:00",
-      "updated": "2023-05-22T16:00:51.408033+00:00"
+      "created": "2023-05-22T19:31:20.423076+00:00",
+      "updated": "2023-05-22T21:58:45.91826+00:00"
     },
     {
       "id": "sectionOneColumn",
@@ -1425,8 +1748,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.226038+00:00",
-      "updated": "2023-05-22T15:59:54.155065+00:00"
+      "created": "2023-05-22T19:31:19.557541+00:00",
+      "updated": "2023-05-22T19:31:19.557541+00:00"
     },
     {
       "id": "sectionTwoColumns",
@@ -1475,8 +1798,8 @@
         }
       ],
       "canBeComposition": false,
-      "created": "2023-05-22T15:31:22.486285+00:00",
-      "updated": "2023-05-22T15:59:30.217187+00:00"
+      "created": "2023-05-22T19:31:19.546303+00:00",
+      "updated": "2023-05-22T19:31:19.546303+00:00"
     }
   ],
   "compositions": [
