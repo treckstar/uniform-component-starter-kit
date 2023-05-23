@@ -145,4 +145,12 @@ const Card: FC<Props> = ({
   });
 });
 
+[undefined, CardVariants.BackgroundImage].forEach(variantId => {
+  registerUniformComponent({
+    type: 'multiCard',
+    component: Card,
+    variantId,
+  });
+});
+
 export default Card;
