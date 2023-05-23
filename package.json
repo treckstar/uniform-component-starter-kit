@@ -34,7 +34,9 @@
   "dependencies": {
     "@uniformdev/canvas-next": "19.10.0",
     "@uniformdev/context-react": "19.10.0",
+    "@uniformdev/context-edge-vercel": "19.10.0",
     "classnames": "^2.3.2",
+    "cookie": "^0.5.0",
     "daisyui": "^2.51.5",
     "next": "13.4.0",
     "react": "18.2.0",
@@ -43,6 +45,7 @@
     "sharp": "^0.32.1"
   },
   "devDependencies": {
+    "@types/cookie": "^0.4.1",
     "@storybook/addon-essentials": "^7.0.7",
     "@storybook/addon-interactions": "^7.0.7",
     "@storybook/addon-links": "^7.0.7",

@@ -13,7 +13,10 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="description" property="og:description" content="Uniform Component Starter Kit" />
       <meta name="version" content={process.env.NEXT_PUBLIC_APP_VERSION} />
     </Head>
-    <UniformContext context={createUniformContext()}>
+    <UniformContext
+      context={createUniformContext()}
+      outputType={process.env.NODE_ENV === 'development' ? 'standard' : 'edge'}
+    >
       <Component {...pageProps} />
     </UniformContext>
   </>
