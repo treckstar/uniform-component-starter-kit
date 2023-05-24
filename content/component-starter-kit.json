@@ -262,36 +262,6 @@
       "updated": "2023-05-22T19:52:10.743183+00:00"
     },
     {
-      "id": "algolia-page",
-      "name": "Algolia Demo Page",
-      "icon": "file-document",
-      "parameters": [
-        {
-          "id": "metaTitle",
-          "name": "Meta Title",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        }
-      ],
-      "useTeamPermissions": true,
-      "slots": [
-        {
-          "id": "content",
-          "name": "Content",
-          "allowedComponents": [
-            "algolia-instantSearch"
-          ],
-          "inheritAllowedComponents": false
-        }
-      ],
-      "canBeComposition": true,
-      "created": "2023-05-22T19:52:10.570383+00:00",
-      "updated": "2023-05-22T19:52:10.570383+00:00"
-    },
-    {
       "id": "algolia-pagination",
       "name": "Pagination",
       "icon": "browser",
@@ -589,7 +559,9 @@
           "name": "Title",
           "type": "text",
           "helpText": "",
-          "typeConfig": null
+          "typeConfig": {
+            "required": true
+          }
         },
         {
           "id": "titleStyle",
@@ -642,7 +614,8 @@
             "container",
             "$test",
             "$personalization",
-            "$loop"
+            "$loop",
+            "multiCard"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -652,7 +625,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-05-22T19:31:18.314179+00:00",
-      "updated": "2023-05-22T19:31:18.314179+00:00",
+      "updated": "2023-05-23T05:07:03.983328+00:00",
       "variants": [
         {
           "id": "carousel",
@@ -1381,6 +1354,15 @@
           }
         },
         {
+          "id": "image",
+          "name": "Image",
+          "type": "cloudinary-image",
+          "helpText": "",
+          "typeConfig": {
+            "targetFolder": "component-starter-kit/canvas-images"
+          }
+        },
+        {
           "id": "primaryButtonCopy",
           "name": "Primary Button Copy",
           "type": "text",
@@ -1421,15 +1403,6 @@
           "type": "tp-button-style-parameter",
           "helpText": "",
           "typeConfig": null
-        },
-        {
-          "id": "image",
-          "name": "Image",
-          "type": "cloudinary-image",
-          "helpText": "",
-          "typeConfig": {
-            "targetFolder": "component-starter-kit/canvas-images"
-          }
         }
       ],
       "useTeamPermissions": true,
@@ -1437,7 +1410,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-05-22T19:31:20.365676+00:00",
-      "updated": "2023-05-22T22:03:04.261809+00:00",
+      "updated": "2023-05-23T00:08:46.183206+00:00",
       "variants": [
         {
           "id": "imageLeft",
@@ -1474,13 +1447,39 @@
         {
           "id": "fields",
           "name": "Fields",
-          "type": "ai-generated-hero",
+          "type": "ai-generated-template",
           "helpText": "",
           "typeConfig": {
-            "promptCta": "Generate a catchy slogan for the following: {link}",
-            "promptTitle": "Generate a title for the following: {link}",
-            "promptLinkText": "Generate link text for the following: {link}",
-            "promptDescription": "Generate a short description for {link}, and target it to someone who matches the following criteria: {$audiences}"
+            "fields": [
+              {
+                "id": "9d9ade15-5de3-46ea-ab55-5d8eda03f751",
+                "label": "Title",
+                "prompt": "Generate a title for the following: ${link}",
+                "caption": "Title generated based on the link.",
+                "publicId": "title"
+              },
+              {
+                "id": "071c5dfc-d2cf-4906-93e9-a46839b460bd",
+                "label": "Description",
+                "prompt": "Generate a short description for ${link}, and target it to someone who matches the following criteria: ${.audiences}",
+                "caption": "Description generated based on the link and targeting any audiences assigned to the component.",
+                "publicId": "description"
+              },
+              {
+                "id": "c28d28d2-a20f-4444-b054-475f2cd15a56",
+                "label": "Link Text",
+                "prompt": "Generate link text for the following: ${link}",
+                "caption": "Link text generated based on the link.",
+                "publicId": "linkText"
+              },
+              {
+                "id": "7cc1af96-6a4c-4fe2-a9dd-d13d3eb8e4fa",
+                "label": "Call to Action",
+                "prompt": "Generate a catchy slogan for the following: ${link}",
+                "caption": "Slogan generated based on the link.",
+                "publicId": "cta"
+              }
+            ]
           }
         }
       ],
@@ -1488,7 +1487,7 @@
       "slots": [],
       "canBeComposition": false,
       "created": "2023-05-22T21:57:47.307952+00:00",
-      "updated": "2023-05-22T22:52:37.602201+00:00"
+      "updated": "2023-05-23T23:59:56.912551+00:00"
     },
     {
       "id": "iconLink",
@@ -1559,6 +1558,116 @@
       "canBeComposition": false,
       "created": "2023-05-22T19:31:20.271937+00:00",
       "updated": "2023-05-22T19:31:20.271937+00:00"
+    },
+    {
+      "id": "multiCard",
+      "name": "Multi-Card",
+      "icon": "https://res.cloudinary.com/uniformdev/image/upload/v1684770718/component-starter-kit/component-icons/new/CSKicon_card_wtsqok.svg",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": false,
+            "multiline": true,
+            "linesCount": "5"
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "cloudinary-image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true,
+            "targetFolder": "component-starter-kit/canvas-images"
+          }
+        },
+        {
+          "id": "badge",
+          "name": "Badge",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "badgeStyle",
+          "name": "Badge Style",
+          "type": "tp-badge-style-parameter",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "badgeSize",
+          "name": "Badge Size",
+          "type": "select",
+          "helpText": "",
+          "typeConfig": {
+            "options": [
+              {
+                "text": "Large",
+                "value": "lg"
+              },
+              {
+                "text": "Medium",
+                "value": "md"
+              },
+              {
+                "text": "Small",
+                "value": "sm"
+              },
+              {
+                "text": "Extra small",
+                "value": "xs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "buttonCopy",
+          "name": "Button Copy",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "buttonLink",
+          "name": "Button Link",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "buttonStyle",
+          "name": "Button Style",
+          "type": "tp-button-style-parameter",
+          "helpText": "",
+          "typeConfig": null
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-05-23T01:46:32.643246+00:00",
+      "updated": "2023-05-23T01:47:05.408847+00:00",
+      "variants": [
+        {
+          "id": "backgroundImage",
+          "name": "Background Image"
+        }
+      ]
     },
     {
       "id": "navigationGroup",
@@ -1667,19 +1776,18 @@
             "$loop",
             "$personalization",
             "image",
-            "heroAiGenerated"
+            "heroAiGenerated",
+            "card",
+            "multiCard"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
           "patternsInAllowedComponents": false
         }
       ],
-      "defaults": {
-        "type": "page"
-      },
       "canBeComposition": true,
       "created": "2023-05-22T19:31:20.423076+00:00",
-      "updated": "2023-05-22T21:58:45.91826+00:00"
+      "updated": "2023-05-23T02:55:59.119942+00:00"
     },
     {
       "id": "sectionOneColumn",
@@ -1805,6 +1913,85 @@
   "compositions": [
     {
       "composition": {
+        "_name": "Modern Hero",
+        "_id": "052d5dbc-180e-47fb-9450-79ae00c48496",
+        "type": "hero",
+        "parameters": {
+          "image": {
+            "type": "cloudinary-image",
+            "value": []
+          },
+          "title": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/fields/title"
+            }
+          },
+          "titleStyle": {
+            "type": "tp-title-style-parameter",
+            "value": "h1"
+          },
+          "description": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/fields/text"
+            }
+          },
+          "eyebrowText": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/sys/contentType/sys/id"
+            }
+          },
+          "primaryButtonCopy": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/fields/callToActionTitle"
+            }
+          }
+        },
+        "_dataResources": {
+          "Hero Content": {
+            "type": "cta",
+            "variables": {
+              "entryIds": "dg4FsngcNwJo1WmoX3O02",
+              "contentTypeId": "callToAction"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "image": "yes",
+            "title": "yes",
+            "titleStyle": "yes",
+            "description": "yes",
+            "eyebrowText": "yes",
+            "primaryButtonCopy": "yes",
+            "primaryButtonLink": "yes",
+            "primaryButtonStyle": "yes",
+            "secondaryButtonCopy": "yes",
+            "secondaryButtonLink": "yes",
+            "secondaryButtonStyle": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T04:13:26.49294+00:00",
+      "modified": "2023-05-23T05:02:59.224928+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
         "_name": "Global",
         "_id": "179bfdf3-be89-4d63-949c-53a58f3eff19",
         "_slug": "global",
@@ -1812,7 +1999,7 @@
         "parameters": {
           "font": {
             "type": "select",
-            "value": "inter"
+            "value": "maven_pro"
           },
           "theme": {
             "type": "tp-set-up-theme-parameter",
@@ -1821,7 +2008,7 @@
                 {
                   "name": "primary",
                   "label": "Primary",
-                  "value": "#0052ED"
+                  "value": "#55493b"
                 },
                 {
                   "name": "primary-content",
@@ -1841,26 +2028,26 @@
                 {
                   "name": "accent",
                   "label": "Accent",
-                  "value": "#DF0000"
+                  "value": "#F8E399"
                 },
                 {
                   "name": "accent-content",
                   "label": "Accent Content",
-                  "value": "#FFFFFF"
+                  "value": "#000000"
                 },
                 {
                   "name": "info-content",
                   "label": "Info Content",
-                  "value": "#99C6FF"
+                  "value": "#E4E4E4"
                 },
                 {
                   "name": "base-300",
                   "label": "Base 300",
-                  "value": "#001242"
+                  "value": "#372f26"
                 }
               ],
-              "themeName": "uniform",
-              "themeLabel": "Uniform"
+              "themeName": "javadrip",
+              "themeLabel": "Java Drip"
             }
           }
         },
@@ -2011,6 +2198,25 @@
                       "title": {
                         "type": "text",
                         "value": "Home"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "452b1cf3-2f08-4a05-8959-03043085f8d2",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/webinar",
+                          "type": "projectMapNode",
+                          "nodeId": "86e4df7e-b6b0-43ef-a3ae-db646ede6b88",
+                          "projectMapId": "40535f31-cdc1-4ac3-bb4d-2a008493b431"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Webinar"
                       }
                     }
                   },
@@ -2224,16 +2430,89 @@
               "parameters": {
                 "logo": {
                   "type": "image",
-                  "value": "https://res.cloudinary.com/uniformdev/image/upload/v1681807651/component-starter-kit/canvas-images/Logo_amxon7.png"
+                  "value": "https://res.cloudinary.com/uniformdev/image/upload/v1684372751/JavaDrip/logos/icon-header-logo_vjm8yy_ljol9o.svg"
                 }
               }
             }
           ]
         }
       },
-      "created": "2023-05-04T08:07:12.075689+00:00",
-      "modified": "2023-05-17T08:56:16.521643+00:00",
+      "created": "2023-05-22T19:31:23.552609+00:00",
+      "modified": "2023-05-23T15:46:18.848956+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "External Card",
+        "_id": "1b584af5-41bf-4ec4-ae62-bab3868582e1",
+        "type": "card",
+        "variant": "backgroundImage",
+        "parameters": {
+          "badge": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Document/productPrices/0/priceFormatted"
+            }
+          },
+          "image": {
+            "type": "image",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Document/images/0/src"
+            }
+          },
+          "title": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Document/teaserTitle"
+            }
+          },
+          "badgeStyle": {
+            "type": "tp-badge-style-parameter",
+            "value": "primary"
+          },
+          "description": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Document/teaserText"
+            }
+          }
+        },
+        "_dataResources": {
+          "Document": {
+            "type": "document",
+            "variables": {
+              "Document ID": "x23qb9yg0zn"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "badge": "yes",
+            "image": "yes",
+            "title": "yes",
+            "badgeSize": "yes",
+            "badgeStyle": "yes",
+            "buttonCopy": "yes",
+            "buttonLink": "yes",
+            "buttonStyle": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T02:38:54.089249+00:00",
+      "modified": "2023-05-23T05:04:08.932899+00:00",
+      "pattern": true
     },
     {
       "composition": {
@@ -2565,6 +2844,385 @@
       "created": "2023-05-02T13:55:30.560245+00:00",
       "modified": "2023-05-03T12:16:21.551859+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Webinar",
+        "_id": "42f39a33-84c4-4cf9-9e9f-0781e3582c4a",
+        "_slug": "webinar",
+        "type": "page",
+        "slots": {
+          "pageContent": [
+            {
+              "_id": "54bb081c-488c-41dd-b64e-0858f9fc073c",
+              "type": "$personalization",
+              "slots": {
+                "pz": [
+                  {
+                    "_id": "b1e14545-93d8-4b21-a722-597c15aa76f6",
+                    "type": "heroAiGenerated",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "https://www.roastycoffee.com/best-arabica-coffee-beans/",
+                          "type": "url"
+                        }
+                      },
+                      "fields": {
+                        "type": "ai-generated-template",
+                        "value": {
+                          "cta": "Get the Best Arabica Beans for Your Brew - Roasty Coffee!",
+                          "title": "An Overview of the Best Arabica Coffee Beans on the Market",
+                          "linkText": "Learn About the Best Arabica Coffee Beans from Roasty Coffee",
+                          "description": "Londoners, get the best Arabica coffee beans from Roasty Coffee! Our selection of high-quality beans are sourced from some of the best regions in the world, ensuring that you get a delicious cup of coffee every time. Try it today and taste the difference!"
+                        }
+                      },
+                      "$pzCrit": {
+                        "type": "$pzCrit",
+                        "value": {
+                          "crit": [
+                            {
+                              "l": "visitorsFromLondon",
+                              "r": 0,
+                              "op": ">"
+                            }
+                          ],
+                          "name": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "bc95e2bb-f9e0-4580-8b9b-b93d28414368",
+                    "type": "hero",
+                    "_pattern": "a694b407-2d8d-4f59-8d02-67ca0f2de9b4"
+                  }
+                ]
+              },
+              "parameters": {
+                "trackingEventName": {
+                  "type": "text",
+                  "value": "Home Hero"
+                }
+              }
+            },
+            {
+              "_id": "a3891299-92bd-4a64-aa60-99b70a4396c2",
+              "type": "sectionTwoColumns",
+              "slots": {
+                "leftContent": [
+                  {
+                    "_id": "535d9895-597f-4454-9398-21a14927d838",
+                    "type": "hero",
+                    "_pattern": "052d5dbc-180e-47fb-9450-79ae00c48496",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "dg4FsngcNwJo1WmoX3O02",
+                          "contentTypeId": "callToAction"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "rightContent": [
+                  {
+                    "_id": "fa3ad28a-82bd-435c-95a4-0ce2c2a9c740",
+                    "type": "hero",
+                    "_pattern": "45ce42f7-532c-4614-979f-0e331cbacf13",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "heroes",
+                        "variables": {
+                          "sc_itemId": "{7992C434-1F07-44BD-8E60-1F4192C43B7B}"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "columnWidths": {
+                  "type": "tp-column-width-parameter",
+                  "value": "1/2 - 1/2"
+                },
+                "mobileItemsOrder": {
+                  "type": "tp-items-order-parameter",
+                  "value": "first"
+                },
+                "verticalAlignment": {
+                  "type": "tp-vertical-align-parameter",
+                  "value": "bottom"
+                }
+              }
+            },
+            {
+              "_id": "08f93cdb-5bc8-47e4-8677-84972279a1c7",
+              "type": "cardBlock",
+              "slots": {
+                "cardBlockInner": [
+                  {
+                    "_id": "a64225b6-6155-46db-8b09-117375b53482",
+                    "type": "card",
+                    "_pattern": "5c7ad805-8606-408c-8a54-103a7be4dc46",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+                          "contentTypeId": "callToAction"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "bf862857-47dd-49de-b711-a5439943fc5c",
+                    "type": "multiCard",
+                    "_pattern": "eb57301c-96e7-45f6-8fc7-c6a55571a8e0",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+                          "contentTypeId": "callToAction"
+                        }
+                      },
+                      "Product": {
+                        "type": "singleProduct",
+                        "variables": {
+                          "body": "{\"requests\":[{\"indexName\":\"Products\",\"objectID\":\"88\"}]}",
+                          "entryIds": "88",
+                          "facetValue": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "0553f140-7bf3-4605-a61b-59d119ecad2b",
+                    "type": "card",
+                    "_pattern": "1b584af5-41bf-4ec4-ae62-bab3868582e1",
+                    "_dataResources": {
+                      "Document": {
+                        "type": "document",
+                        "variables": {
+                          "Document ID": "x23qb9yg0zn"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "demo cards!!!"
+                },
+                "titleStyle": {
+                  "type": "tp-title-style-parameter",
+                  "value": "h1"
+                }
+              }
+            },
+            {
+              "_id": "19e8da51-fb77-4024-a7f0-d1afdcba7b3c",
+              "type": "cardBlock",
+              "_pattern": "93924c3b-e8bf-4690-9e3c-2149340d23a0",
+              "_dataResources": {
+                "Product Set": {
+                  "type": "productSet",
+                  "variables": {
+                    "ids": "117,123,140,116"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "c8668221-68e0-4886-8774-0d508edf69a2",
+              "type": "cardBlock",
+              "_pattern": "7d441017-84c8-46b3-a1dd-f108437b83ab",
+              "_dataResources": {
+                "Products Query": {
+                  "type": "products",
+                  "variables": {
+                    "body": "{\"facetFilters\":\"topCategory:Coffee Makers\",\"query\":\"espresso\",\"hitsPerPage\":\"3\"}",
+                    "path": "/Products/query",
+                    "limit": "3",
+                    "keyword": "espresso",
+                    "facetValue": "Coffee Makers"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_overrides": {
+          "a64225b6-6155-46db-8b09-117375b53482": {
+            "parameters": {
+              "badgeSize": {
+                "type": "select",
+                "value": "md"
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "primary"
+              },
+              "buttonCopy": {
+                "type": "text",
+                "value": "Click me"
+              },
+              "buttonLink": {
+                "type": "link",
+                "value": {
+                  "path": "/components",
+                  "type": "projectMapNode",
+                  "nodeId": "cab3997c-e1bb-4846-be31-9afeae37c5d4",
+                  "projectMapId": "40535f31-cdc1-4ac3-bb4d-2a008493b431"
+                }
+              },
+              "buttonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "primary"
+              }
+            }
+          },
+          "bc95e2bb-f9e0-4580-8b9b-b93d28414368": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "hey, and welcome, stranger!"
+              },
+              "titleStyle": {
+                "type": "tp-title-style-parameter",
+                "value": "h2"
+              },
+              "primaryButtonCopy": {
+                "type": "text",
+                "value": "Learn more!!!"
+              },
+              "primaryButtonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "secondary"
+              }
+            }
+          },
+          "bf862857-47dd-49de-b711-a5439943fc5c": {
+            "parameters": {
+              "image": {
+                "type": "cloudinary-image",
+                "value": [
+                  {
+                    "alt": "",
+                    "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681896392/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "uuid": "49e9252e-fd48-441e-85d9-24e4fca8521e",
+                    "width": "510",
+                    "format": "png",
+                    "height": "496",
+                    "caption": "",
+                    "version": 1681896392,
+                    "publicId": "component-starter-kit/canvas-images/cup_wu91ex",
+                    "createdAt": "2023-04-19T09:26:32Z",
+                    "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "resourceType": "image",
+                    "transformation": ""
+                  }
+                ]
+              },
+              "badgeSize": {
+                "type": "select",
+                "value": "sm"
+              }
+            }
+          },
+          "19e8da51-fb77-4024-a7f0-d1afdcba7b3c|59d31063-230d-4d0d-80aa-0e3598f91a41": {
+            "variant": "backgroundImage",
+            "parameters": {
+              "badgeSize": {
+                "type": "select",
+                "value": "lg"
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "accent"
+              }
+            }
+          }
+        }
+      },
+      "created": "2023-05-23T15:26:12.358025+00:00",
+      "modified": "2023-05-23T23:58:14.673885+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Legacy Hero",
+        "_id": "45ce42f7-532c-4614-979f-0e331cbacf13",
+        "type": "hero",
+        "parameters": {
+          "image": {
+            "type": "cloudinary-image",
+            "value": []
+          },
+          "title": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/title"
+            }
+          },
+          "titleStyle": {
+            "type": "tp-title-style-parameter",
+            "value": "h1"
+          },
+          "description": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/text"
+            }
+          },
+          "eyebrowText": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Hero Content/ItemName"
+            }
+          }
+        },
+        "_dataResources": {
+          "Hero Content": {
+            "type": "heroes",
+            "variables": {
+              "sc_itemId": "{4E33B260-1D9B-48F8-8478-39CA76794448}"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "image": "yes",
+            "title": "yes",
+            "titleStyle": "yes",
+            "description": "yes",
+            "eyebrowText": "yes",
+            "primaryButtonCopy": "yes",
+            "primaryButtonLink": "yes",
+            "primaryButtonStyle": "yes",
+            "secondaryButtonCopy": "yes",
+            "secondaryButtonLink": "yes",
+            "secondaryButtonStyle": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T00:07:56.244766+00:00",
+      "modified": "2023-05-23T05:02:46.910406+00:00",
+      "pattern": true
     },
     {
       "composition": {
@@ -3077,8 +3735,24 @@
               "variant": "backgroundImage",
               "parameters": {
                 "image": {
-                  "type": "image",
-                  "value": "https://res.cloudinary.com/uniformdev/image/upload/v1681807373/component-starter-kit/canvas-images/Rectangle_7_2_uupdjo.webp"
+                  "type": "cloudinary-image",
+                  "value": [
+                    {
+                      "alt": "",
+                      "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681807373/component-starter-kit/canvas-images/Rectangle_7_2_uupdjo.png",
+                      "uuid": "4cbcbb97-82df-4703-941b-944ed6a8cbab",
+                      "width": "1600",
+                      "format": "png",
+                      "height": "689",
+                      "caption": "",
+                      "version": 1681807373,
+                      "publicId": "component-starter-kit/canvas-images/Rectangle_7_2_uupdjo",
+                      "createdAt": "2023-04-18T08:42:53Z",
+                      "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/Rectangle_7_2_uupdjo.png",
+                      "resourceType": "image",
+                      "transformation": ""
+                    }
+                  ]
                 },
                 "title": {
                   "type": "text",
@@ -3112,6 +3786,19 @@
                 "primaryButtonStyle": {
                   "type": "tp-button-style-parameter",
                   "value": "primary"
+                }
+              }
+            },
+            {
+              "_id": "35181d98-8b52-409b-97d9-a82707addcd1",
+              "type": "hero",
+              "_pattern": "45ce42f7-532c-4614-979f-0e331cbacf13",
+              "_dataResources": {
+                "Hero Content": {
+                  "type": "heroes",
+                  "variables": {
+                    "sc_itemId": "{4E33B260-1D9B-48F8-8478-39CA76794448}"
+                  }
                 }
               }
             },
@@ -3559,7 +4246,7 @@
               "variant": "imageRight",
               "parameters": {
                 "image": {
-                  "type": "image",
+                  "type": "cloudinary-image",
                   "value": "https://res.cloudinary.com/uniformdev/image/upload/v1681808641/component-starter-kit/canvas-images/Hero-Rectangle_nof1km.png"
                 },
                 "title": {
@@ -3611,10 +4298,408 @@
               }
             }
           ]
+        },
+        "_overrides": {
+          "35181d98-8b52-409b-97d9-a82707addcd1": {
+            "parameters": {
+              "titleStyle": {
+                "type": "tp-title-style-parameter",
+                "value": "h2"
+              },
+              "primaryButtonCopy": {
+                "type": "text",
+                "value": "click me"
+              },
+              "primaryButtonLink": {
+                "type": "link",
+                "value": {
+                  "path": "/components",
+                  "type": "projectMapNode",
+                  "nodeId": "cab3997c-e1bb-4846-be31-9afeae37c5d4",
+                  "projectMapId": "40535f31-cdc1-4ac3-bb4d-2a008493b431"
+                }
+              },
+              "primaryButtonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "secondary"
+              }
+            }
+          }
         }
       },
-      "created": "2023-05-02T13:55:28.879669+00:00",
-      "modified": "2023-05-03T11:56:02.832755+00:00",
+      "created": "2023-05-22T19:31:23.769537+00:00",
+      "modified": "2023-05-23T00:26:00.734411+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "CTA Card",
+        "_id": "5c7ad805-8606-408c-8a54-103a7be4dc46",
+        "type": "card",
+        "parameters": {
+          "badge": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/callToActionTitle"
+            }
+          },
+          "image": {
+            "type": "image",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/image/fields/file/url"
+            }
+          },
+          "title": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/title"
+            }
+          },
+          "badgeSize": {
+            "type": "select",
+            "value": "lg"
+          },
+          "badgeStyle": {
+            "type": "tp-badge-style-parameter",
+            "value": "accent"
+          },
+          "description": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/text"
+            }
+          }
+        },
+        "_dataResources": {
+          "Content": {
+            "type": "cta",
+            "variables": {
+              "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+              "contentTypeId": "callToAction"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "badge": "yes",
+            "image": "yes",
+            "title": "yes",
+            "badgeSize": "yes",
+            "badgeStyle": "yes",
+            "buttonCopy": "yes",
+            "buttonLink": "yes",
+            "buttonStyle": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T00:49:09.23025+00:00",
+      "modified": "2023-05-23T00:52:34.628813+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "demo run",
+        "_id": "638ceff8-d9d6-4f40-bee3-7f7e117401cf",
+        "_slug": "demo-run",
+        "type": "page",
+        "slots": {
+          "pageContent": [
+            {
+              "_id": "0a1ac617-3fee-4ca8-9240-3aa4e5c600d8",
+              "type": "$personalization",
+              "slots": {
+                "pz": [
+                  {
+                    "_id": "3799eb04-0281-429b-90e5-dee1cc505b46",
+                    "type": "heroAiGenerated",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "https://www.roastycoffee.com/best-arabica-coffee-beans/",
+                          "type": "url"
+                        }
+                      },
+                      "fields": {
+                        "type": "ai-generated-hero",
+                        "value": {
+                          "cta": "Get the Best Arabica Beans: Roasty Coffee, Your Summarized Source!",
+                          "title": "The Top 10 Best Arabica Coffee Beans According to Roasty Coffee",
+                          "linkText": "Learn About the Best Arabica Coffee Beans from Roasty Coffee",
+                          "description": "For Londoners looking for the best Arabica coffee beans, Roasty Coffee has you covered. Our selection of beans is sourced from the finest growers and roasted to perfection, so you can enjoy a delicious cup of coffee every time. Visit Roasty Coffee today to find the perfect beans for your next cup of joe!"
+                        }
+                      },
+                      "$pzCrit": {
+                        "type": "$pzCrit",
+                        "value": {
+                          "crit": [
+                            {
+                              "l": "visitorsFromLondon",
+                              "r": 0,
+                              "op": ">"
+                            }
+                          ],
+                          "name": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "ce8bf816-3dbd-4aae-96f8-453cc54e1836",
+                    "type": "hero",
+                    "_pattern": "a694b407-2d8d-4f59-8d02-67ca0f2de9b4"
+                  }
+                ]
+              },
+              "parameters": {
+                "trackingEventName": {
+                  "type": "text",
+                  "value": "Hero Home"
+                }
+              }
+            },
+            {
+              "_id": "e77d43a4-5140-4322-b4f7-6ab196fafc10",
+              "type": "sectionTwoColumns",
+              "slots": {
+                "leftContent": [
+                  {
+                    "_id": "f73cf276-24c6-423a-8192-8c7000ceaa40",
+                    "type": "hero",
+                    "_pattern": "45ce42f7-532c-4614-979f-0e331cbacf13",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "heroes",
+                        "variables": {
+                          "sc_itemId": "{7992C434-1F07-44BD-8E60-1F4192C43B7B}"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "rightContent": [
+                  {
+                    "_id": "70ccd250-00cf-4ea9-893b-45b11c6e1343",
+                    "type": "hero",
+                    "_pattern": "052d5dbc-180e-47fb-9450-79ae00c48496",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "dg4FsngcNwJo1WmoX3O02",
+                          "contentTypeId": "callToAction"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "columnWidths": {
+                  "type": "tp-column-width-parameter",
+                  "value": "1/2 - 1/2"
+                },
+                "mobileItemsOrder": {
+                  "type": "tp-items-order-parameter",
+                  "value": "first"
+                },
+                "verticalAlignment": {
+                  "type": "tp-vertical-align-parameter",
+                  "value": "top"
+                }
+              }
+            },
+            {
+              "_id": "4cedf0f9-8734-4590-bd43-d7ce4f63b3a1",
+              "type": "cardBlock",
+              "slots": {
+                "cardBlockInner": [
+                  {
+                    "_id": "0f57ac93-b357-46d2-a979-d93a9674a027",
+                    "type": "card",
+                    "_pattern": "5c7ad805-8606-408c-8a54-103a7be4dc46",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "dg4FsngcNwJo1WmoX3O02",
+                          "contentTypeId": "callToAction"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "0311ff35-6c17-44b3-8362-5cea13cca4d3",
+                    "type": "multiCard",
+                    "_pattern": "eb57301c-96e7-45f6-8fc7-c6a55571a8e0",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+                          "contentTypeId": "callToAction"
+                        }
+                      },
+                      "Product": {
+                        "type": "singleProduct",
+                        "variables": {
+                          "body": "{\"requests\":[{\"indexName\":\"Products\",\"objectID\":\"88\"}]}",
+                          "entryIds": "88",
+                          "facetValue": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "dfc802b1-f172-49a3-b2b6-a949e1da635f",
+                    "type": "card",
+                    "_pattern": "1b584af5-41bf-4ec4-ae62-bab3868582e1",
+                    "_dataResources": {
+                      "Document": {
+                        "type": "document",
+                        "variables": {
+                          "Document ID": "x23qb9yg0zn"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "demo cards"
+                },
+                "titleStyle": {
+                  "type": "tp-title-style-parameter",
+                  "value": "h1"
+                }
+              }
+            },
+            {
+              "_id": "ef238b81-fecd-43d3-a80a-d9801d623523",
+              "type": "cardBlock",
+              "_pattern": "93924c3b-e8bf-4690-9e3c-2149340d23a0",
+              "_dataResources": {
+                "Product Set": {
+                  "type": "productSet",
+                  "variables": {
+                    "ids": "123,120,116"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "73b39470-359f-4c6e-8a5e-b4fde772dbcd",
+              "type": "cardBlock",
+              "_pattern": "7d441017-84c8-46b3-a1dd-f108437b83ab",
+              "_dataResources": {
+                "Products Query": {
+                  "type": "products",
+                  "variables": {
+                    "body": "{\"facetFilters\":\"topCategory:Coffee Makers\",\"query\":\"espresso\",\"hitsPerPage\":\"4\"}",
+                    "path": "/Products/query",
+                    "limit": "4",
+                    "keyword": "espresso",
+                    "facetValue": "Coffee Makers"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_overrides": {
+          "0311ff35-6c17-44b3-8362-5cea13cca4d3": {
+            "variant": "backgroundImage",
+            "parameters": {
+              "image": {
+                "type": "cloudinary-image",
+                "value": [
+                  {
+                    "alt": "",
+                    "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681896392/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "uuid": "faf9522d-9516-4059-a244-df275364f522",
+                    "width": "510",
+                    "format": "png",
+                    "height": "496",
+                    "caption": "",
+                    "version": 1681896392,
+                    "publicId": "component-starter-kit/canvas-images/cup_wu91ex",
+                    "createdAt": "2023-04-19T09:26:32Z",
+                    "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "resourceType": "image",
+                    "transformation": ""
+                  }
+                ]
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "secondary"
+              }
+            }
+          },
+          "0f57ac93-b357-46d2-a979-d93a9674a027": {
+            "parameters": {
+              "badgeSize": {
+                "type": "select",
+                "value": "md"
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "primary"
+              }
+            }
+          },
+          "ce8bf816-3dbd-4aae-96f8-453cc54e1836": {
+            "variant": "backgroundImage",
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "hello and welcome, stranger!"
+              },
+              "titleStyle": {
+                "type": "tp-title-style-parameter",
+                "value": "h1"
+              },
+              "primaryButtonCopy": {
+                "type": "text",
+                "value": "Learn more!!"
+              },
+              "primaryButtonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "accent"
+              }
+            }
+          },
+          "73b39470-359f-4c6e-8a5e-b4fde772dbcd|e0a9c44e-619a-4ee1-a0b5-fd8917a520aa": {
+            "variant": "backgroundImage",
+            "parameters": {
+              "badgeSize": {
+                "type": "select",
+                "value": "md"
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "accent"
+              }
+            }
+          }
+        }
+      },
+      "created": "2023-05-23T14:41:01.199693+00:00",
+      "modified": "2023-05-23T14:54:08.102956+00:00",
       "pattern": false
     },
     {
@@ -4070,6 +5155,155 @@
       },
       "created": "2023-05-22T15:31:26.142375+00:00",
       "modified": "2023-05-22T15:33:29.964893+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Dynamic Product Cards",
+        "_id": "7d441017-84c8-46b3-a1dd-f108437b83ab",
+        "type": "cardBlock",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "Quality products delivered to your doorstep"
+          },
+          "titleStyle": {
+            "type": "tp-title-style-parameter",
+            "value": "h1"
+          },
+          "description": {
+            "type": "text",
+            "value": "some content"
+          }
+        },
+        "slots": {
+          "cardBlockInner": [
+            {
+              "_id": "36d867f1-b4f4-4d6f-9a53-4940c06b9721",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "e0a9c44e-619a-4ee1-a0b5-fd8917a520aa",
+                    "type": "card",
+                    "parameters": {
+                      "badge": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Products Query hits Loop Item/topCategory"
+                        }
+                      },
+                      "image": {
+                        "type": "image",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Products Query hits Loop Item/image"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Products Query hits Loop Item/name"
+                        }
+                      },
+                      "badgeSize": {
+                        "type": "select",
+                        "value": "lg"
+                      },
+                      "badgeStyle": {
+                        "type": "tp-badge-style-parameter",
+                        "value": "primary"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Products Query hits Loop Item/brand"
+                        }
+                      }
+                    },
+                    "_overridability": {
+                      "variants": true,
+                      "parameters": {
+                        "badge": "yes",
+                        "image": "yes",
+                        "title": "yes",
+                        "badgeSize": "yes",
+                        "badgeStyle": "yes",
+                        "buttonCopy": "yes",
+                        "buttonLink": "yes",
+                        "buttonStyle": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "Products Query hits Loop Item": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/Products Query/hits"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Products Query": {
+            "type": "products",
+            "variables": {
+              "body": "{\"query\":\"\",\"hitsPerPage\":\"4\"}",
+              "path": "/Products/query",
+              "limit": "4",
+              "keyword": "",
+              "facetValue": ""
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "title": "yes",
+            "buttonCopy": "yes",
+            "buttonLink": "yes",
+            "titleStyle": "yes",
+            "buttonStyle": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T00:55:21.75921+00:00",
+      "modified": "2023-05-23T01:07:08.616407+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Demo3",
+        "_id": "7e2c75ea-4d44-41bc-9956-a713a9dfd2da",
+        "_slug": "demo3",
+        "type": "page",
+        "parameters": {},
+        "slots": {
+          "pageContent": [
+            {
+              "type": "hero",
+              "_pattern": "a694b407-2d8d-4f59-8d02-67ca0f2de9b4"
+            }
+          ]
+        }
+      },
+      "created": "2023-05-23T02:55:32.017086+00:00",
+      "modified": "2023-05-23T02:55:32.017086+00:00",
       "pattern": false
     },
     {
@@ -5086,6 +6320,288 @@
     },
     {
       "composition": {
+        "_name": "Curated Product Cards",
+        "_id": "93924c3b-e8bf-4690-9e3c-2149340d23a0",
+        "type": "cardBlock",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "Your curated product collection"
+          },
+          "titleStyle": {
+            "type": "tp-title-style-parameter",
+            "value": "h2"
+          },
+          "description": {
+            "type": "text",
+            "value": "some compelling content here"
+          }
+        },
+        "slots": {
+          "cardBlockInner": [
+            {
+              "_id": "eb7eee37-1018-440a-b9a7-db709f42fb38",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "59d31063-230d-4d0d-80aa-0e3598f91a41",
+                    "type": "card",
+                    "parameters": {
+                      "badge": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Product Set products Loop Item/primaryCategoryId"
+                        }
+                      },
+                      "image": {
+                        "type": "image",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Product Set products Loop Item/imageGroups/0/images/0/disBaseLink"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Product Set products Loop Item/name"
+                        }
+                      },
+                      "badgeStyle": {
+                        "type": "tp-badge-style-parameter",
+                        "value": "primary"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Product Set products Loop Item/brand"
+                        }
+                      }
+                    },
+                    "_overridability": {
+                      "variants": true,
+                      "parameters": {
+                        "badge": "yes",
+                        "image": "yes",
+                        "title": "yes",
+                        "badgeSize": "yes",
+                        "badgeStyle": "yes",
+                        "buttonCopy": "yes",
+                        "buttonLink": "yes",
+                        "buttonStyle": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "Product Set products Loop Item": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/Product Set/products"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Product Set": {
+            "type": "productSet",
+            "variables": {
+              "ids": "115,117,140"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "title": "yes",
+            "buttonCopy": "yes",
+            "buttonLink": "yes",
+            "titleStyle": "yes",
+            "buttonStyle": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T01:07:22.360044+00:00",
+      "modified": "2023-05-23T01:22:47.412739+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Default Hero",
+        "_id": "a694b407-2d8d-4f59-8d02-67ca0f2de9b4",
+        "type": "hero",
+        "variant": "backgroundImage",
+        "parameters": {
+          "image": {
+            "type": "cloudinary-image",
+            "value": [
+              {
+                "alt": "",
+                "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681805219/component-starter-kit/canvas-images/Rectangle_7_rskl2m.png",
+                "uuid": "766a8d7e-6308-422f-a4cb-8299bb99e14f",
+                "width": "1600",
+                "format": "png",
+                "height": "689",
+                "caption": "",
+                "version": 1681805219,
+                "publicId": "component-starter-kit/canvas-images/Rectangle_7_rskl2m",
+                "createdAt": "2023-04-18T08:06:59Z",
+                "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/Rectangle_7_rskl2m.png",
+                "resourceType": "image",
+                "transformation": ""
+              }
+            ]
+          },
+          "title": {
+            "type": "text",
+            "value": "and welcome, stranger!"
+          },
+          "titleStyle": {
+            "type": "tp-title-style-parameter",
+            "value": "h1"
+          },
+          "description": {
+            "type": "text",
+            "value": "We have awesome coffee beans and outstanding coffee machines."
+          },
+          "eyebrowText": {
+            "type": "text",
+            "value": "hello..."
+          },
+          "primaryButtonCopy": {
+            "type": "text",
+            "value": "Learn more"
+          },
+          "primaryButtonLink": {
+            "type": "link",
+            "value": {
+              "path": "/components/content-blocks",
+              "type": "projectMapNode",
+              "nodeId": "435b7a20-cf5a-4e2a-a1ce-f674fe7ee044",
+              "projectMapId": "40535f31-cdc1-4ac3-bb4d-2a008493b431"
+            }
+          },
+          "primaryButtonStyle": {
+            "type": "tp-button-style-parameter",
+            "value": "secondary"
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "image": "yes",
+            "title": "yes",
+            "titleStyle": "yes",
+            "description": "yes",
+            "eyebrowText": "yes",
+            "primaryButtonCopy": "yes",
+            "primaryButtonLink": "yes",
+            "primaryButtonStyle": "yes",
+            "secondaryButtonCopy": "yes",
+            "secondaryButtonLink": "yes",
+            "secondaryButtonStyle": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T00:13:13.74452+00:00",
+      "modified": "2023-05-23T05:02:26.777058+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "FAQ",
+        "_id": "b6ba850d-5495-4018-87b5-132d991e1b4f",
+        "type": "accordion",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "Frequently asked questions"
+          },
+          "description": {
+            "type": "text",
+            "value": "Answer your customers possible questions here, it will increase the conversion rate as well as support or chat requests."
+          }
+        },
+        "slots": {
+          "items": [
+            {
+              "_id": "1839b3ca-9b58-49b2-9f59-1132223cf678",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "4e926ae5-62ff-4002-b51d-230d9fc56fb3",
+                    "type": "accordionItem",
+                    "parameters": {
+                      "title": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Content items Loop Item/fields/question"
+                        }
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "unresolved",
+                        "connectedData": {
+                          "syntax": "jptr",
+                          "pointer": "/Content items Loop Item/fields/question"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "Content items Loop Item": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/Content/items"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Content": {
+            "type": "faqItems",
+            "variables": {
+              "entryIds": "1XqpiuVtNl03ST5DmeSRz7,21mS335QK1XsEOvQsomub,5wAysgySiEcLf6QfqT7mvb,1PMRLXmQ9Rm7AqMsqZtyaq,1NvPRfPQ2PtxptWiNFZReA",
+              "contentTypeId": "faqBlock"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "title": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T00:28:58.506436+00:00",
+      "modified": "2023-05-23T00:30:01.619037+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
         "_name": "Accordions",
         "_id": "d7af4c54-9a0c-41af-9eda-4075a9e6dbec",
         "_slug": "accordions",
@@ -5181,6 +6697,111 @@
       "created": "2023-05-02T13:55:29.452014+00:00",
       "modified": "2023-05-03T12:12:21.755711+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Multi-Card",
+        "_id": "eb57301c-96e7-45f6-8fc7-c6a55571a8e0",
+        "type": "multiCard",
+        "variant": "backgroundImage",
+        "parameters": {
+          "badge": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Product/results/0/subcategories/0"
+            }
+          },
+          "image": {
+            "type": "cloudinary-image",
+            "value": []
+          },
+          "title": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Product/results/0/name"
+            }
+          },
+          "badgeSize": {
+            "type": "select",
+            "value": "md"
+          },
+          "badgeStyle": {
+            "type": "tp-badge-style-parameter",
+            "value": "accent"
+          },
+          "buttonCopy": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/text"
+            }
+          },
+          "buttonLink": {
+            "type": "link",
+            "value": {
+              "path": "/components",
+              "type": "projectMapNode",
+              "nodeId": "cab3997c-e1bb-4846-be31-9afeae37c5d4",
+              "projectMapId": "40535f31-cdc1-4ac3-bb4d-2a008493b431"
+            }
+          },
+          "buttonStyle": {
+            "type": "tp-button-style-parameter",
+            "value": "accent"
+          },
+          "description": {
+            "type": "text",
+            "value": "unresolved",
+            "connectedData": {
+              "syntax": "jptr",
+              "pointer": "/Content/fields/title"
+            }
+          }
+        },
+        "_dataResources": {
+          "Content": {
+            "type": "cta",
+            "variables": {
+              "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+              "contentTypeId": "callToAction"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          },
+          "Product": {
+            "type": "singleProduct",
+            "variables": {
+              "body": "{\"requests\":[{\"indexName\":\"Products\",\"objectID\":\"88\"}]}",
+              "entryIds": "88",
+              "facetValue": ""
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "badge": "yes",
+            "image": "yes",
+            "title": "yes",
+            "badgeSize": "yes",
+            "badgeStyle": "yes",
+            "buttonCopy": "yes",
+            "buttonLink": "yes",
+            "buttonStyle": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-05-23T01:48:33.385842+00:00",
+      "modified": "2023-05-23T01:50:02.562686+00:00",
+      "pattern": true
     },
     {
       "composition": {
@@ -5412,6 +7033,283 @@
       },
       "created": "2023-05-04T08:07:12.689165+00:00",
       "modified": "2023-05-17T08:54:08.263688+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Demo2",
+        "_id": "fc91c846-800a-46d8-978a-1cfa51a9bd49",
+        "_slug": "demo2",
+        "type": "page",
+        "slots": {
+          "pageContent": [
+            {
+              "_id": "61a799fd-86ca-4ce7-8c8c-ffcd96323910",
+              "type": "$personalization",
+              "slots": {
+                "pz": [
+                  {
+                    "_id": "5eb0d2f2-c2ca-495f-ad86-c8a3f71f6900",
+                    "type": "heroAiGenerated",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "https://www.roastycoffee.com/best-arabica-coffee-beans/",
+                          "type": "url"
+                        }
+                      },
+                      "fields": {
+                        "type": "ai-generated-hero",
+                        "value": {
+                          "cta": "Freshly Roasted Arabica Beans: The Perfect Summary of Quality Coffee!",
+                          "title": "The Best Arabica Coffee Beans: A Comprehensive Summary",
+                          "linkText": "Learn About the Best Arabica Coffee Beans at Roasty Coffee",
+                          "description": "Are you a coffee lover visiting London? Roasty Coffee has the best Arabica coffee beans to give you the perfect cup of coffee. Enjoy the smooth, rich flavor of Arabica beans sourced from the world's best growing regions. Get your coffee fix today!"
+                        }
+                      },
+                      "$pzCrit": {
+                        "type": "$pzCrit",
+                        "value": {
+                          "crit": [
+                            {
+                              "l": "visitorsFromLondon",
+                              "r": 0,
+                              "op": ">"
+                            }
+                          ],
+                          "name": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "53448198-a862-4b90-97e0-51a8ae06e4e0",
+                    "type": "hero",
+                    "_pattern": "a694b407-2d8d-4f59-8d02-67ca0f2de9b4"
+                  }
+                ]
+              },
+              "parameters": {
+                "trackingEventName": {
+                  "type": "text",
+                  "value": "Home hero"
+                }
+              }
+            },
+            {
+              "_id": "2850ad19-9cb6-4a07-951a-895f835a85db",
+              "type": "hero",
+              "_pattern": "45ce42f7-532c-4614-979f-0e331cbacf13",
+              "_dataResources": {
+                "Hero Content": {
+                  "type": "heroes",
+                  "variables": {
+                    "sc_itemId": "{7992C434-1F07-44BD-8E60-1F4192C43B7B}"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "a542e593-cb14-49a4-a311-b3c37b2bad1a",
+              "type": "cardBlock",
+              "slots": {
+                "cardBlockInner": [
+                  {
+                    "_id": "28302675-0132-47ab-9b54-bb6e55a030c0",
+                    "type": "card",
+                    "_pattern": "5c7ad805-8606-408c-8a54-103a7be4dc46",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+                          "contentTypeId": "callToAction"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "e6238d19-129e-41e8-8acf-e40ee8785f28",
+                    "type": "multiCard",
+                    "_pattern": "eb57301c-96e7-45f6-8fc7-c6a55571a8e0",
+                    "_dataResources": {
+                      "Content": {
+                        "type": "cta",
+                        "variables": {
+                          "entryIds": "2f8HfIShuXsjBANJ8a5dDO",
+                          "contentTypeId": "callToAction"
+                        }
+                      },
+                      "Product": {
+                        "type": "singleProduct",
+                        "variables": {
+                          "body": "{\"requests\":[{\"indexName\":\"Products\",\"objectID\":\"88\"}]}",
+                          "entryIds": "88",
+                          "facetValue": ""
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "bda97db0-8aa7-41cf-ba3f-5f1466e33b5f",
+                    "type": "card",
+                    "_pattern": "1b584af5-41bf-4ec4-ae62-bab3868582e1",
+                    "_dataResources": {
+                      "Document": {
+                        "type": "document",
+                        "variables": {
+                          "Document ID": "x23qb9yg0zn"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "My demo cards"
+                },
+                "titleStyle": {
+                  "type": "tp-title-style-parameter",
+                  "value": "h2"
+                }
+              }
+            },
+            {
+              "_id": "20077200-9262-431e-a7a2-4bfe1b50bec0",
+              "type": "cardBlock",
+              "_pattern": "93924c3b-e8bf-4690-9e3c-2149340d23a0",
+              "_dataResources": {
+                "Product Set": {
+                  "type": "productSet",
+                  "variables": {
+                    "ids": "115,140,123"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "c3fe3af7-3cb4-4ddd-930e-e85f697e9913",
+              "type": "cardBlock",
+              "_pattern": "7d441017-84c8-46b3-a1dd-f108437b83ab",
+              "_dataResources": {
+                "Products Query": {
+                  "type": "products",
+                  "variables": {
+                    "body": "{\"facetFilters\":\"topCategory:Coffee Beans\",\"query\":\"\",\"hitsPerPage\":\"4\"}",
+                    "path": "/Products/query",
+                    "limit": "4",
+                    "keyword": "",
+                    "facetValue": "Coffee Beans"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "e4192d35-f150-40eb-a98c-0e2a921ddbf4",
+              "type": "accordion",
+              "_pattern": "b6ba850d-5495-4018-87b5-132d991e1b4f",
+              "_dataResources": {
+                "Content": {
+                  "type": "faqItems",
+                  "variables": {
+                    "entryIds": "1XqpiuVtNl03ST5DmeSRz7,1PMRLXmQ9Rm7AqMsqZtyaq,5wAysgySiEcLf6QfqT7mvb,21mS335QK1XsEOvQsomub",
+                    "contentTypeId": "faqBlock"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_overrides": {
+          "2850ad19-9cb6-4a07-951a-895f835a85db": {
+            "variant": "imageLeft",
+            "parameters": {
+              "image": {
+                "type": "cloudinary-image",
+                "value": [
+                  {
+                    "alt": "",
+                    "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681896392/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "uuid": "25cfcef4-6e50-43c5-b188-9fa2b1ffb179",
+                    "width": "510",
+                    "format": "png",
+                    "height": "496",
+                    "caption": "",
+                    "version": 1681896392,
+                    "publicId": "component-starter-kit/canvas-images/cup_wu91ex",
+                    "createdAt": "2023-04-19T09:26:32Z",
+                    "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/cup_wu91ex.png",
+                    "resourceType": "image",
+                    "transformation": ""
+                  }
+                ]
+              },
+              "titleStyle": {
+                "type": "tp-title-style-parameter",
+                "value": "h2"
+              }
+            }
+          },
+          "c3fe3af7-3cb4-4ddd-930e-e85f697e9913": {
+            "parameters": {
+              "buttonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "accent"
+              }
+            }
+          },
+          "e6238d19-129e-41e8-8acf-e40ee8785f28": {
+            "parameters": {
+              "image": {
+                "type": "cloudinary-image",
+                "value": [
+                  {
+                    "alt": "",
+                    "url": "https://res.cloudinary.com/uniformdev/image/upload/v1681817053/component-starter-kit/canvas-images/card-background-3_zwxcda.png",
+                    "uuid": "51c98296-5ec1-4b5d-9856-1fd080fae3e7",
+                    "width": "424",
+                    "format": "png",
+                    "height": "450",
+                    "caption": "",
+                    "version": 1681817053,
+                    "publicId": "component-starter-kit/canvas-images/card-background-3_zwxcda",
+                    "createdAt": "2023-04-18T11:24:13Z",
+                    "previewUrl": "https://res.cloudinary.com/uniformdev/image/upload/q_auto,f_auto,w_150/component-starter-kit/canvas-images/card-background-3_zwxcda.png",
+                    "resourceType": "image",
+                    "transformation": ""
+                  }
+                ]
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "secondary"
+              },
+              "buttonStyle": {
+                "type": "tp-button-style-parameter",
+                "value": "secondary"
+              }
+            }
+          },
+          "c3fe3af7-3cb4-4ddd-930e-e85f697e9913|e0a9c44e-619a-4ee1-a0b5-fd8917a520aa": {
+            "variant": "backgroundImage",
+            "parameters": {
+              "badgeSize": {
+                "type": "select",
+                "value": "xs"
+              },
+              "badgeStyle": {
+                "type": "tp-badge-style-parameter",
+                "value": "accent"
+              }
+            }
+          }
+        }
+      },
+      "created": "2023-05-23T02:04:08.447638+00:00",
+      "modified": "2023-05-23T13:38:19.844227+00:00",
       "pattern": false
     }
   ],
