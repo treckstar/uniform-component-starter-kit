@@ -1,5 +1,7 @@
 # Uniform Component Starter Kit
 
+:)
+
 The Component Starter kit gives you the key building blocks to create dynamic and compelling web experiences and demonstrate the power of digital experience composition in Uniform. Just install, customize and start creating.
 
 Built with love by Uniform folks, standing on the shoulders of TailwindCSS, DaisyUI, React and Next.js.
