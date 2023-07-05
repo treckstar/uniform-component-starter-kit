@@ -23,6 +23,7 @@ export type Props = ComponentProps<{
   description: string;
   buttonCopy: string;
   buttonLink: Types.ProjectMapLink;
+  targetUrl: string;
   buttonStyle: Types.ButtonStyles;
 }>;
 
@@ -92,6 +93,7 @@ const Card: FC<Props> = ({
   badgeSize = 'md',
   badgeStyle = 'secondary',
   buttonLink,
+  targetUrl,
   buttonStyle,
   component: { variant } = {},
 }) => {
@@ -138,9 +140,9 @@ const Card: FC<Props> = ({
           render={(value = '') => <div dangerouslySetInnerHTML={{ __html: value }} />}
         />
         <div className="card-actions justify-end">
-          {Boolean(buttonLink?.path) && (
+          {Boolean(targetUrl) && (
             <Button
-              href={buttonLink?.path}
+              href={targetUrl}
               style={buttonStyle}
               copy={
                 <UniformText
