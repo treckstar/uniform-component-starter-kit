@@ -29,6 +29,7 @@ const BASE_PROPS: Omit<CardProps, 'component'> = {
   buttonLink: {
     path: '/',
   },
+  targetUrl: '/',
   buttonStyle: 'primary',
 };
 

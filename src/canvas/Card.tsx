@@ -92,7 +92,6 @@ const Card: FC<Props> = ({
   image,
   badgeSize = 'md',
   badgeStyle = 'secondary',
-  buttonLink,
   targetUrl,
   buttonStyle,
   component: { variant } = {},
